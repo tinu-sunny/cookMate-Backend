@@ -12,6 +12,7 @@ router.post('/register',userController.regUser)
 router.post('/login',userController.loginuser)
 router.get('/related-recipes',jwtMiddleware,recipeController.relatedRecipe)
 router.post('/save-recipes/:id',jwtMiddleware,recipeController.addSavedRecipe)
+router.get('/View-Saved-Collection',jwtMiddleware,recipeController.viewRecipeUser)
 
 
 module.exports=router   

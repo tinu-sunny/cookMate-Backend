@@ -93,8 +93,26 @@ exports.addSavedRecipe = async(req,res)=>{
         
     }
     
-    
-
-
 }
 
+
+
+
+exports.viewRecipeUser = async(req,res)=>{
+    console.log(req.payload);
+    const {userId}=req.payload
+
+    try{
+        
+        const userSavedCollection = await savedRecipes.find({userId}).sort({_id:-1})
+        console.log(userSavedCollection);
+        res.status(200).json({message:"sved recipe",userSavedCollection})
+        
+
+    }
+    catch(err){
+        console.log("error in view saved recipe ",err);
+        res.status(500).json({message:"err in view saved data",err})
+        
+    }
+}
