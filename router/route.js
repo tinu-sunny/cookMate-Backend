@@ -3,6 +3,7 @@ const recipeController = require('../Controller/recipeController')
 
 const userController = require('../Controller/userController')
 const jwtMiddleware = require('../middleware/jwtmiddleware')
+const { addNewRecipe, updateRecipe, deleterecipe } = require('../Controller/AdminController')
 
 const router = express.Router()
 
@@ -15,6 +16,9 @@ router.post('/save-recipes/:id',jwtMiddleware,recipeController.addSavedRecipe)
 router.get('/View-Saved-Collection',jwtMiddleware,recipeController.viewRecipeUser)
 router.delete('/delete-saved-recipe/:id',jwtMiddleware,recipeController.deleteSavedRecipe)
 router.post('/download-recipe/:id',jwtMiddleware,recipeController.downloadRecipes)
+router.post('/manage-recipe/add',addNewRecipe)
+router.patch('/manage-recipe/update/:id',updateRecipe)
+router.delete('/delete-recipe/:id',deleterecipe)
 
 
 

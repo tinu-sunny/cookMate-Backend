@@ -15,7 +15,7 @@ exports.viewallRecips = async(req,res)=>{
     
 
     try
-    {const Allrescipes = await recipe.find()
+    {const Allrescipes = await recipe.find().sort({_id:-1})
     res.status(200).json({success:true,message:"All rescipes",Allrescipes})
 } catch(err){
     console.log(err);
