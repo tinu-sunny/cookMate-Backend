@@ -13,6 +13,9 @@ router.post('/login',userController.loginuser)
 router.get('/related-recipes',jwtMiddleware,recipeController.relatedRecipe)
 router.post('/save-recipes/:id',jwtMiddleware,recipeController.addSavedRecipe)
 router.get('/View-Saved-Collection',jwtMiddleware,recipeController.viewRecipeUser)
+router.delete('/delete-saved-recipe/:id',jwtMiddleware,recipeController.deleteSavedRecipe)
+router.post('/download-recipe/:id',jwtMiddleware,recipeController.downloadRecipes)
+
 
 
 module.exports=router   
